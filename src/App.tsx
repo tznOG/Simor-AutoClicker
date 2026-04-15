@@ -4,6 +4,7 @@ import { getCurrentWindow, LogicalSize } from "@tauri-apps/api/window";
 import { lazy, useEffect, useRef, useState } from "react";
 import UpdateBanner from "./components/Updatebanner";
 import { canonicalizeHotkeyForBackend } from "./hotkeys";
+import { useTranslation } from "./i18n";
 import {
   APP_VERSION,
   DEFAULT_SETTINGS,
@@ -77,6 +78,8 @@ export default function App() {
     currentVersion: string;
     latestVersion: string;
   } | null>(null);
+
+  const t = useTranslation(settings.language);
 
   const hotkeyTimer = useRef<number | null>(null);
   const hotkeyRequestIdRef = useRef(0);
@@ -418,8 +421,8 @@ export default function App() {
         setTab={handleTabChange}
         running={status.running}
         stopReason={
-          settings.showStopReason && tab === "advanced"
-            ? status.stopReason
+          settings.showStopReason && tab === "advanced" && status.stopReason
+            ? t(("stopReason" + status.stopReason.replace(/[^a-zA-Z]/g, "").toUpperCase()) as any) || status.stopReason
             : null
         }
         onRequestClose={handleWindowClose}

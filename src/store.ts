@@ -8,6 +8,8 @@ export const APP_VERSION = await getVersion();
 export type SavedPanel = "simple" | "advanced";
 export type ExplanationMode = "off" | "text";
 export type Theme = "dark" | "light";
+export type Language = "en" | "pt" | "es";
+export type PvpMode = "Off" | "Left" | "Right";
 
 export interface Settings {
   version: string;
@@ -47,7 +49,8 @@ export interface Settings {
   showStopReason: boolean;
   showStopOverlay: boolean;
   theme: Theme;
-  pvpModeEnabled: boolean;
+  pvpMode: PvpMode;
+  language: Language;
 }
 
 export interface ClickerStatus {
@@ -101,7 +104,8 @@ export const DEFAULT_SETTINGS: Settings = {
   showStopReason: true,
   showStopOverlay: true,
   theme: "dark",
-  pvpModeEnabled: false,
+  pvpMode: "Off",
+  language: "en",
 };
 
 function sanitizeSavedPanel(value: unknown): SavedPanel {
@@ -235,7 +239,8 @@ function sanitizeSettings(input?: Partial<Settings> | null): Settings {
     explanationMode: sanitizeExplanationMode(saved),
     lastPanel: sanitizeSavedPanel(saved.lastPanel),
     theme: saved.theme === "light" ? "light" : "dark",
-    pvpModeEnabled: sanitizeBoolean(saved.pvpModeEnabled, DEFAULT_SETTINGS.pvpModeEnabled),
+    pvpMode: ["Off", "Left", "Right"].includes(saved.pvpMode as any) ? (saved.pvpMode as any) : DEFAULT_SETTINGS.pvpMode,
+    language: ["en", "pt", "es"].includes(saved.language as any) ? (saved.language as any) : DEFAULT_SETTINGS.language,
   };
 }
 

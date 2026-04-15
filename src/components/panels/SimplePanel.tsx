@@ -2,6 +2,7 @@ import type { Settings } from "../../store";
 import HotkeyCaptureInput from "../HotkeyCaptureInput";
 import "./Modes.css";
 import "./SimplePanel.css";
+import { useTranslation } from "../../i18n";
 // I HATE MAKING UI, FUCK UI DESIGN IN CODE, WHY CANT I JUST PHOTOSHOP THIS SHIT
 // ahem, made with love :3
 interface SimplePanelProps {
@@ -20,6 +21,8 @@ const MODE_OPTIONS = ["Toggle", "Hold"] as const;
 const MOUSE_BUTTON_OPTIONS = ["Left", "Middle", "Right"] as const;
 
 export default function SimplePanel({ settings, update }: SimplePanelProps) {
+  const t = useTranslation(settings.language);
+
   const normalizeRaw = (raw: string) => raw.replace(/^0+(?=\d)/, "");
 
   const parseRawNumber = (raw: string) => {
@@ -133,8 +136,7 @@ export default function SimplePanel({ settings, update }: SimplePanelProps) {
               )
             }
           >
-            {INTERVAL_OPTIONS.find((o) => o.value === settings.clickInterval)
-              ?.label ?? "Second"}
+            {t(settings.clickInterval === "s" ? "second" : settings.clickInterval === "m" ? "minute" : settings.clickInterval === "h" ? "hour" : "day") as string}
           </button>
           <svg
             className="Icon clock-icon"
@@ -202,7 +204,7 @@ export default function SimplePanel({ settings, update }: SimplePanelProps) {
               )
             }
           >
-            {settings.mode}
+            {t(settings.mode.toLowerCase())}
           </button>
         </div>
       </div>

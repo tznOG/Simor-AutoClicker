@@ -3,6 +3,7 @@ import type { AppInfo, Settings } from "../../store";
 import { invoke } from "@tauri-apps/api/core";
 import { useEffect, useRef, useState } from "react";
 import { open } from "@tauri-apps/plugin-shell";
+import { useTranslation } from "../../i18n";
 
 interface CumulativeStats {
   totalClicks: number;
@@ -61,6 +62,8 @@ export default function SettingsPanel({
       .catch(() => {});
   }, []);
 
+  const t = useTranslation(settings.language);
+
   const handleScroll = () => {
     const el = panelRef.current;
     if (!el) return;
@@ -72,8 +75,25 @@ export default function SettingsPanel({
   return (
     <div className="settings-wrapper">
       <div className="settings-panel" ref={panelRef} onScroll={handleScroll}>
+        <div className="settings-row">
+          <span className="settings-label">{t("language")}</span>
+          <div className="settings-seg-group">
+            {[ { v: "en", l: "EN" }, { v: "pt", l: "PT" }, { v: "es", l: "ES" } ].map((o) => (
+              <button
+                key={o.v}
+                className={`settings-seg-btn ${settings.language === o.v ? "active" : ""}`}
+                onClick={() => update({ language: o.v as any })}
+              >
+                {o.l}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="settings-divider" />
+
         <div className="social-links">
-          <span className="settings-label">Support Me</span>
+          <span className="settings-label">{t("supportMe")}</span>
           <div className="social-icons">
             <a
               className="social-icon social-icon--youtube"
@@ -237,19 +257,19 @@ export default function SettingsPanel({
 
         <div className="settings-row">
           <div className="settings-label-group">
-            <span className="settings-label">Minecraft / PVP Mode</span>
+            <span className="settings-label">{t("minecraftPvpMode")}</span>
             <span className="settings-sublabel">
-              Only clicks when holding down the physical left mouse button.
+              Only clicks when holding down the physical mouse button.
             </span>
           </div>
           <div className="settings-seg-group">
-            {["On", "Off"].map((o) => (
+            {["Off", "Left", "Right"].map((o) => (
               <button
                 key={o}
-                className={`settings-seg-btn ${(settings.pvpModeEnabled ? "On" : "Off") === o ? "active" : ""}`}
-                onClick={() => update({ pvpModeEnabled: o === "On" })}
+                className={`settings-seg-btn ${settings.pvpMode === o ? "active" : ""}`}
+                onClick={() => update({ pvpMode: o as any })}
               >
-                {o}
+                {o === "Off" ? t("off") : o === "Left" ? t("left") : t("right")}
               </button>
             ))}
           </div>

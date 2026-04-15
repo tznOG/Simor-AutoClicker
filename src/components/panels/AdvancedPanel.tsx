@@ -1,5 +1,6 @@
 import type { Settings } from "../../store";
 import AdvancedPanelLayout from "./AdvancedPanelLayout";
+import { useTranslation } from "../../i18n";
 
 interface Props {
   settings: Settings;
@@ -12,6 +13,8 @@ export default function AdvancedPanel({
   update,
   onPickPosition,
 }: Props) {
+  const t = useTranslation(settings.language);
+
   return (
     <AdvancedPanelLayout
       settings={settings}
@@ -19,6 +22,7 @@ export default function AdvancedPanel({
       onPickPosition={onPickPosition}
       compact={false}
       showExplanations
+      title={t("advancedSettings")}
     />
   );
 }

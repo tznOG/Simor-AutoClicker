@@ -6,29 +6,29 @@
 }
 
 :root {
-  --bg-base:       rgb(18, 18, 18);
-  --bg-surface:    hsl(0, 0%, 10%);
-  --bg-elevated:   hsl(0, 0%, 15%);
-  --bg-input:      hsl(0, 0%, 23%);
-  --bg-input-off:  hsl(0, 0%, 20%);
+  --bg-base:       hsl(220, 10%, 10%);
+  --bg-surface:    hsl(220, 10%, 14%);
+  --bg-elevated:   hsl(220, 10%, 18%);
+  --bg-input:      hsl(220, 10%, 25%);
+  --bg-input-off:  hsl(220, 10%, 20%);
 
-  --border:        hsl(90, 0%, 25%);
-  --border-focus:  hsl(0, 0%, 30%);
-  --border-subtle: hsl(0, 0%, 20%);
+  --border:        hsl(220, 10%, 28%);
+  --border-focus:  hsl(220, 10%, 40%);
+  --border-subtle: hsl(220, 10%, 20%);
 
-  --text-primary:  hsla(180, 67%, 99%, 1);
-  --text-muted:    hsla(180, 67%, 99%, 0.5);
-  --text-dim:      hsla(180, 67%, 99%, 0.25);
+  --text-primary:  hsla(0, 0%, 95%, 1);
+  --text-muted:    hsla(0, 0%, 95%, 0.6);
+  --text-dim:      hsla(0, 0%, 95%, 0.3);
 
   --accent-green:  hsla(129, 77%, 43%, 0.75);
   --accent-yellow: hsla(41, 99%, 59%, 0.75);
   --accent-red:    hsla(4, 100%, 71%, 0.75);
 
-  --radius-sm:     6px;
-  --radius-md:     10px;
-  --radius-lg:     14px;
+  --radius-sm:     8px;
+  --radius-md:     14px;
+  --radius-lg:     20px;
 
-  --container-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --container-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
   --font-weight-li: 400;
   --font-weight-md: 600;
@@ -97,7 +97,8 @@ body {
   flex-direction: column;
   overflow: hidden;
   border-radius: var(--radius-md);
-  transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1), width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--container-shadow);
+  transition: height 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   position: relative;
 }
 

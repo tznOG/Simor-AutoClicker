@@ -41,7 +41,8 @@ pub struct ClickerSettings {
     pub last_panel: String,
     pub show_stop_reason: bool,
     pub show_stop_overlay: bool,
-    pub pvp_mode_enabled: bool,
+    pub pvp_mode: String,
+    pub language: String,
 }
 
 impl Default for ClickerSettings {
@@ -83,7 +84,8 @@ impl Default for ClickerSettings {
             last_panel: "simple".to_string(),
             show_stop_reason: true,
             show_stop_overlay: true,
-            pvp_mode_enabled: false,
+            pvp_mode: "Off".to_string(),
+            language: "en".to_string(),
         }
     }
 }

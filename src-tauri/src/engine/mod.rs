@@ -32,7 +32,7 @@ pub struct ClickerConfig {
     pub edge_stop_right: i32,
     pub edge_stop_bottom: i32,
     pub edge_stop_left: i32,
-    pub pvp_mode_enabled: bool,
+    pub pvp_mode: String,
 }
 
 #[derive(Clone, Debug, serde::Serialize)]

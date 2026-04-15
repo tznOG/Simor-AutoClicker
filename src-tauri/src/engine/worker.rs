@@ -210,7 +210,7 @@ pub fn build_config(settings: &ClickerSettings) -> Result<ClickerConfig, String>
         edge_stop_right: settings.edge_stop_right,
         edge_stop_bottom: settings.edge_stop_bottom,
         edge_stop_left: settings.edge_stop_left,
-        pvp_mode_enabled: settings.pvp_mode_enabled,
+        pvp_mode: settings.pvp_mode,
     })
 }
 
@@ -292,8 +292,12 @@ pub fn start_clicker(config: ClickerConfig, control: RunControl) -> RunOutcome {
             break;
         }
 
-        if config.pvp_mode_enabled {
-            let physical_down = crate::hotkeys::PHYSICAL_LBUTTON_DOWN.load(Ordering::SeqCst);
+        if config.pvp_mode != "Off" {
+            let physical_down = if config.pvp_mode == "Right" {
+                crate::hotkeys::PHYSICAL_RBUTTON_DOWN.load(Ordering::SeqCst)
+            } else {
+                crate::hotkeys::PHYSICAL_LBUTTON_DOWN.load(Ordering::SeqCst)
+            };
             if !physical_down {
                 let remaining = next_batch_time.saturating_duration_since(Instant::now());
                 if remaining > Duration::ZERO {

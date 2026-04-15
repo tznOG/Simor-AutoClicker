@@ -23,9 +23,12 @@ static SCROLL_UP_AT: AtomicU64 = AtomicU64::new(0);
 static SCROLL_DOWN_AT: AtomicU64 = AtomicU64::new(0);
 static NUMPAD_ENTER_DOWN: AtomicBool = AtomicBool::new(false);
 pub static PHYSICAL_LBUTTON_DOWN: AtomicBool = AtomicBool::new(false);
+pub static PHYSICAL_RBUTTON_DOWN: AtomicBool = AtomicBool::new(false);
 
 const WM_LBUTTONDOWN: usize = 0x0201;
 const WM_LBUTTONUP: usize = 0x0202;
+const WM_RBUTTONDOWN: usize = 0x0204;
+const WM_RBUTTONUP: usize = 0x0205;
 const LLMHF_INJECTED: u32 = 0x00000001;
 
 /// How long a scroll event is considered "pressed" for the polling loop.
@@ -439,6 +442,10 @@ unsafe extern "system" fn mouse_hook_proc(code: i32, w_param: usize, l_param: is
                 PHYSICAL_LBUTTON_DOWN.store(true, Ordering::SeqCst);
             } else if w_param == WM_LBUTTONUP {
                 PHYSICAL_LBUTTON_DOWN.store(false, Ordering::SeqCst);
+            } else if w_param == WM_RBUTTONDOWN {
+                PHYSICAL_RBUTTON_DOWN.store(true, Ordering::SeqCst);
+            } else if w_param == WM_RBUTTONUP {
+                PHYSICAL_RBUTTON_DOWN.store(false, Ordering::SeqCst);
             }
         }
 
