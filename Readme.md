@@ -1,77 +1,107 @@
-[![Downloads](https://img.shields.io/github/downloads/tzn/Simor-AutoClicker/total?style=for-the-badge&label=downloads)](https://github.com/tzn/Simor-AutoClicker/releases)
+[![Downloads](https://img.shields.io/github/downloads/tznOG/Simor-AutoClicker/total?style=for-the-badge&label=downloads)](https://github.com/tznOG/Simor-AutoClicker/releases)
 
 # Simor Auto Clicker
 
-<div align="center">
-    <img src="https://github.com/tzn/Simor-AutoClicker/blob/main/public/V3.0.0_UI.png" width="600"/>
-</div>
-<p align="center"><em>An accuracy and performance focused auto clicker</em></p>
-
-
-## Why I made it:
-
-A lot of the most popular auto clickers, like OP Auto Clicker and Speed Auto Clicker, are pretty inaccurate at higher speeds. Setting CPS to 50 might give you 40... or 60. Technically this is not an issue since they are still clicking _fast_, but I am a perfectionist and I wanted something that could actually click at the CPS I set it to, even at higher speeds. So I made this.
-
-Additionally, many auto clickers have 1 good feature but are missing the other features I want. My auto clicker combines all the features I have seen in other auto clickers, and even adds some of my own ideas.
-
-Performance is also a heavy focus of this. While version 3 and onwards run on a web-based UI, The total RAM usage is around 50mb and I intend for it to never go above 100mb.
-
----
-
-## Features
+[ 🇧🇷 Português ](#português) | [ 🇺🇸 English ](#english) | [ 🇪🇸 Español ](#español)
 
 <div align="center">
-    <img src="https://github.com/tzn/Simor-AutoClicker/blob/main/public/30s_500cps_Speed_Test.png" width="600"/>
+    <img src="https://github.com/tznOG/Simor-AutoClicker/blob/main/public/V3.0.0_UI.png" width="600"/>
 </div>
-<p align="center"><em>Simor Auto Clicker reaching 500 CPS steadily (windows limit¹)</em></p>
-
-Simple Mode:
-- On / Off Indicator (simor logo turns green when active)
-- Individual mouse button settings (left, right, middle)
-- Hold / Toggle activation modes
-- customizable hotkeys
-
-Advanced Mode (includes all simple mode features plus):
-- adjustable click timing (duty cycle)
-- Speed Range Mode (randomizes CPS within a range)
-- Corner and edge stopping (turns off when mouse is in corners or near edges of the screen)
-- Click and Time limits (stop after certain amount of clicks or time)
-- Double clicks
-- Position Clicking (you can pick a position where the mouse will move to and click.)
-- Clicks can be adjusted to per Second, Minute, Hour, or even Day
-  
-Other Features:
-- click stats (total clicks, clicks per second, etc)
-  
----
-
-## Installation
-
- <tr>
-    <td align="center" colspan="2">
-      <a href="https://github.com/tzn/Simor-AutoClicker/releases/latest">
-        <img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt="Download from GitHub" height="75">
-      </a>
-    </td>
-  </tr>
-
-By default, the program is stored in `%localappdata%/SimorAutoClicker/SimorAutoClicker.exe`. 
-
-Config and stats are stored in `%appdata%/SimorAutoClicker`.
-
-*Info: If you are on version 2.1.2 or below, delete the old executable (the installer will not delete it for you).
-The old Config and Stats files will unfortunately not be compatible with the new versions (3.0.0 and above), so they will be deleted upon launching the application.*
 
 ---
 
-## Support the project!
-[![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/tzn)
+<h2 id="português">🇧🇷 Português</h2>
 
-You can also support the project by starring the repository and sharing it with your friends :). Thank you for your support!
+**Um auto clicker focado em precisão, performance e recursos variados.**
 
-## License
+### Por que criei o Simor Auto Clicker:
+Muitos dos auto clickers mais populares não são precisos em altas velocidades (CPS alto). Este foca em utilizar os limites máximos nativos do Windows enquanto mantém muito pouco uso de memória RAM (cerca de 50MB a 100MB no máximo).  
+O projeto possui diversas funcionalidades em uma interface agradável e também foca extremamente na utilidade diária, combinando o que outros programas deixam de fora (incluindo o novo "Modo PVP").
 
-This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text).
+### Funcionalidades & Explicações
 
-## Other Info
-1. Windows has a limit of around 500 CPS for mouse events. This is because Windows timer resolution is limited to about 1ms at minimum (1000cps) but windows also needs to do other things, so the practical limit is around 800cps, but since I can not guarantee that performance on every computer, I set the limit to 500cps.
+**Modo Simples (Simple Mode):**
+- **Velocidade de Clique / CPS:** Escolha quantos cliques por segundo (ou por minuto, hora, dia) o clicker deve executar.
+- **Botões Dinâmicos do Mouse:** Suporta gerar cliques com o botão Esquerdo, Direito e do Meio (Roda).
+- **Modos de Ativação:** Use em "Toggle" (Pressione o atalho uma vez para ligar, pressione de novo para desligar) ou em "Hold" (Clique somente enquanto segura o atalho do teclado pressionado).
+- **Atalhos Customizáveis (Hotkeys):** Use qualquer atalho ou combinação do teclado para iniciar o clique.
+- **Modo Minecraft / PVP:** Este modo exige que você esteja **fisicamente segurando** o botão esquerdo do seu mouse verdadeiro para ejetar cliques rápidos. Isso permite focar a mira normalmente e apenas "ligar" o drag/fast-click no meio de combates PVP (jogador contra jogador) ou durante um fast bridging.
+
+**Modo Avançado (Advanced Mode):**
+*(Inclui absolutamente tudo do Modo Simples e adiciona:)*
+- **Hold Time (Duty Cycle):** Controla por qual porcentagem do tempo o botão do mouse fica sendo de fato "acionado e mantido pressionado" para baixo em relação a cada clique gerado.
+- **Randomização (Speed Range):** Permite randomizar a velocidade (flutuação de CPS). Fundamental para variar os milissegundos e evitar bloqueios em sistemas de detecção Anti-cheats baseados em precisão perfeita do bot.
+- **Parada nos Cantos / Bordas:** O clicker pode ser programado para pausar sua atividade automaticamente se o mouse for direcionado aos cantos (Corner Stop) ou bem próximo às extremidades da tela (Edge stop).
+- **Limites Exatos:** Pare de clicar automaticamente depois de um limite preciso estipulado (ex: exatamente 10.000 cliques) ou limite de tempo.
+- **Cliques Duplos (Double Click):** Dispara fisicamente o evento Duplo.
+- **Posição no Ecrã:** Selecione uma coordenada (X, Y) do seu monitor. Onde quer que seu mouse esteja com a mão, o evento será instantaneamente acionado lá.
+
+### Instalação
+[Baixe a última versão na nossa aba Releases](https://github.com/tznOG/Simor-AutoClicker/releases/latest). Ele suporta atualizações automáticas silenciosas pela plataforma em background. 
+
+---
+
+<h2 id="english">🇺🇸 English</h2>
+
+**An accuracy and performance-focused auto clicker.**
+
+### Why I made it:
+A lot of the most popular auto clickers are pretty inaccurate at higher speeds. Setting CPS to 50 might give you 40... or 60. I wanted something that perfectly matched the given CPS while keeping RAM usage very low (under 100mb continuously). This auto clicker also aggregates almost all essential features other generic auto clickers systematically skip—notably introducing our new intelligent "PVP Mode".
+
+### Features & Explanations
+
+**Simple Mode:**
+- **Click Interval/Speed:** Adjustable precise click rates up to the pure OS engine limit (capped near 500cps). Optionally set your increments per Second, Minute, Hour, or Day.
+- **Target Mouse Buttons:** Capable of automating Left, Middle, and Right physical buttons.
+- **Activation Modes:** Keep it in Toggle (press once to start, press again to stop) or strictly Hold behaviors.
+- **Customizable Hotkeys.**
+- **Minecraft / PVP Mode:** This highly requested feature forces the active autoclicker to ONLY simulate and send clicks if the actual left physical mouse button is being actively held down by your dominant finger. Perfect for fluid multiplayer combat & fast block bridging where dynamic control matters.
+
+**Advanced Mode:**
+*(Includes all previous functions plus:)*
+- **Duty Cycle:** Adjust what raw percentage of the total iteration is spent literally "holding the button downwards" during a single click.
+- **Randomization (Variation/Speed Range):** Seamlessly shifts the loop timing dynamically to bypass and circumvent anti-cheat pattern detection logic designed to flag identically spaced artificial intervals.
+- **Edge/Corner Stops:** The click algorithm will smoothly interrupt itself and halt output if your cursor enters the specific proximity bounds of your monitor corners or screen borders.
+- **Hardcaps/Limits:** Stop clicking precisely based on either a specific time passed limit or after generating 'X' exact click counts.
+- **Position Coordinates:** Locks automated click coordinates onto chosen constant Screen-X/Y values, bypassing mechanical desktop movement constraints.
+
+### Installation
+[Download the latest setup from GitHub Releases here.](https://github.com/tznOG/Simor-AutoClicker/releases/latest)
+
+---
+
+<h2 id="español">🇪🇸 Español</h2>
+
+**Un auto clicker muy enfocado en la alta precisión y un gran rendimiento versátil.**
+
+### Por qué lo creé:
+Considerable cantidad de los auto clickers convencionales más populares son en general inexactos en velocidades frenéticas de cliqueo. Yo quise uno desarrollado para ser 100% exacto a la tasa pedida exprimiendo las APIs nativas de Windows de bajo nivel con un modesto uso de la Memoria RAM.  
+Posee las mecánicas y necesidades cruciales en una interfaz unificada adaptada, sin prescindir de tácticas especiales de última tendencia como el "Modo PVP".
+
+### Funciones y Explicaciones
+
+**Modo Simple (Simple Mode):**
+- **Velocidad de Clic (CPS):** Especifica las cantidades de clics producidos por escala temporal (Ej. por Segundos, o Minutos).
+- **Botones Target:** Compatibilidad con botón Izquierdo, Derecho y el Clic-Medio de la rueda.
+- **Modo de Activación:** Escoge actuar sobre "Toggle" (Cambiar de On y Off presionando tu respectiva tecla) o actuar en "Hold" (Mantener presionado siempre y soltar para detenerse).
+- **Atajos Personalizables.**
+- **Modo Minecraft / PVP:** Habilita el clicker solo y estrictamente si el jugador tiene su ratón físico activamente oprimido con su propio dedo. Evita problemas y desastres a la hora de hacer apuntado continuo manual, perfecto para librar combates de PvP entre jugadores o puentes de bloques dinámicos "Fast Bridging".
+
+**Modo Avanzado (Advanced Mode):**
+- **Hold Time (Ciclo de trabajo):** Maneja exactamente los milisegundos y el margen de latencia de cuan de presionado en el suelo permanece cada clic sintético frente a lo laxo de su soltado final.
+- **Aleatoriedad Mínima (Variación):** Oscilación aleatoria dentro de porcentajes que emula la naturaleza "humana" en el lapso temporal, confundiendo detecciones agresivas que prohíben a los jugadores mediante Anti-cheat por cadencias matemáticas rígidas.
+- **Parada en Esquinas / Bordes:** Obliga al clicker a ignorar acciones en cuanto el mouse invada bordes externos o llegue a reposar en extremos lejanos de la resolución global actual.
+- **Límites Fijos:** Para en seco todo proceso una vez lograda tu cuota establecida (ya sea por límite de clics dados exactos, o conteo de fin por temporalizador).
+- **Coordenada Precisa en Pantalla:** Remite todo pulso originado a un punto geográfico X e Y invariable del Windows, aunque arrastres accidentalmente tu mano a otro rincón.
+
+### Instalación
+[Obtén y descarga la última actualización libre en la pestaña de Releases.](https://github.com/tznOG/Simor-AutoClicker/releases/latest)
+
+---
+
+<br>
+
+### Support the project!
+[![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/tznOG)
+
+*This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text).*
